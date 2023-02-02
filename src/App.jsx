@@ -16,6 +16,8 @@ function App() {
       .catch((err) => console.log(err))
   }, [])
 
+  results.sort((a, b) => (b.votes - a.votes))
+
   return (
     <div className="flex flex-full flex-col w-full items-center">
       {results.map((result, index) => {
@@ -25,7 +27,7 @@ function App() {
             <h4>{result.district}</h4>
             <h4>{result.party}</h4>
             <h4>{result.votes}</h4>
-            <h4>{result.percentage.toString()}</h4>
+            <h4>{result.percentage.$numberDecimal} %</h4>
           </div>
         )
       })}
