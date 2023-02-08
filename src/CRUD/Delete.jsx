@@ -1,6 +1,6 @@
 function DeleteBtn (props){
-    return (
-        <button>Delete</button>
+    return(
+        <h1>Deleteee</h1>
     )
 }
 

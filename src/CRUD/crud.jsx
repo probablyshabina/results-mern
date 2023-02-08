@@ -1,17 +1,33 @@
+import React from 'react'
+import AddPage from './Add'
+import DeletePage from './Delete'
+import UpdatePage from './Update'
+import ViewPage from './View'
+import {root} from '../main'
 
-import AddBtn from './Add'
-import UpdateBtn from './Update'
-import DeleteBtn from './Delete'
-import ViewBtn from './View'
+function Crud(props) {
+    function addClickHandle(e) {
+        const id = e.target.id
 
-function Crud() {
+        root.render(
+            <React.StrictMode>
+                {
+                id == "add" ? <AddPage/> : 
+                id == "delete" ? <DeletePage RecordId={props.RecordId}/> : 
+                id == "update" ? <UpdatePage RecordId={props.RecordId}/> :
+                id == "view" ? <ViewPage RecordId={props.RecordId}/> : null
+                }
+            </React.StrictMode>,
+        )
+    }
+
     return (
         <div className='flex flex-full justify-center m-4'>
             <div className='flex flex-row justify-between align-middle w-3/5'>
-                <AddBtn />
-                <UpdateBtn />
-                <DeleteBtn />
-                <ViewBtn />
+                <button onClick={addClickHandle} id="add">Add</button>
+                <button onClick={addClickHandle} id="update">Update</button>
+                <button onClick={addClickHandle} id="delete">Delete</button>
+                <button onClick={addClickHandle} id="view">View</button>
             </div>
         </div>
     )
