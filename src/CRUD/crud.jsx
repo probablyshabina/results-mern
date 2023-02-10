@@ -7,15 +7,28 @@ import {root} from '../main'
 
 function Crud(props) {
     function addClickHandle(e) {
-        const id = e.target.id
+        const actionType = e.target.id
+        const selectedRecord = props.Record
+        const recordId = props.RecordId
+        const isIdValid = recordId != "" && recordId != undefined
 
         root.render(
             <React.StrictMode>
                 {
-                id == "add" ? <AddPage/> : 
-                id == "delete" ? <DeletePage RecordId={props.RecordId}/> : 
-                id == "update" ? <UpdatePage RecordId={props.RecordId}/> :
-                id == "view" ? <ViewPage RecordId={props.RecordId}/> : null
+                actionType == "add" ? 
+                    <AddPage/> : 
+                actionType == "delete" && isIdValid ? 
+                    <DeletePage RecordId={recordId} 
+                        selectedRecord={selectedRecord}/> : 
+                actionType == "update" && isIdValid ? 
+                    <UpdatePage RecordId={recordId} 
+                        selectedRecord={selectedRecord}/> :
+                actionType == "view" && isIdValid ? 
+                    <ViewPage RecordId={recordId} 
+                        selectedRecord={selectedRecord}/> : 
+                <div>
+                    <h5>Please select a Record</h5>
+                </div>
                 }
             </React.StrictMode>,
         )

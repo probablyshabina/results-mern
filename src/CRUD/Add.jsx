@@ -37,13 +37,13 @@ function AddBtn() {
                     API.post('/add', newData)
                         .then((req, res) => {
                             console.log("recived response")
-                            /*
+                            
                             root.render(
                                 <StrictMode>
                                     <h3>Doneee</h3>
                                 </StrictMode>,
                             )
-                            */
+                            
                         })
                     .catch((err) => console.log(err.response.data))
 

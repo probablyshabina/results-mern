@@ -20,7 +20,7 @@ export const addResult = async (req, res) => {
 
 export const getResult = async (req, res) => {
     try{
-        const {id: resultID} = req.params;
+        const {_id: resultID} = req.params;
         const result = await Result.findOne({_id: resultID});
         if(!result){
             return res.status(404).json({msg: `no result with id: ${resultID}`});
@@ -33,7 +33,7 @@ export const getResult = async (req, res) => {
 
 export const updateResult = async (req, res) => {
     try{
-        const {id: resultID} = req.params;
+        const {_id: resultID} = req.params;
         const result = await Result.findByIdAndUpdate({_id: resultID}, req.body, {
             new: true,
             runValidation: true
@@ -48,11 +48,14 @@ export const updateResult = async (req, res) => {
 };
 
 export const deleteResult = async (req, res) => {
+    console.log(req)
     try{
-        const {id: resultID} = req.params;
+        const {_id: resultID} = req.params;
+        console.log("resultID: ")
+        console.log(resultID)
         const result = await Result.findOneAndDelete({_id: resultID});
         if(!result){
-            return res.status(404).json({msg: `No result with id: ${resultID}`});
+            return res.status(404).json({msg: 'No result with id: ${resultID}'});
         }
         res.status(200).json({result: null, status: 'successfully deleted'});
     }catch(error){

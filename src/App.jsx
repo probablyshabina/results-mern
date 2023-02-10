@@ -33,12 +33,12 @@ function App() {
 
     for (const element of containerDiv.children) {
       if (element != recordDiv)
-        element.classList.remove("border-white-100")
+        element.classList.remove("border-cyan-100")
       element.classList.remove("border-4")
       element.classList.remove("rounded-lg")
       element.classList.add("border-cyan-500")
     }
-    recordDiv.classList.add("border-white-100")
+    recordDiv.classList.add("border-cyan-100")
     recordDiv.classList.add("border-4")
     recordDiv.classList.add("rounded-lg")
     recordDiv.classList.remove("border-cyan-500")
@@ -47,7 +47,7 @@ function App() {
     const element = results.filter((result) => {
       return result._id == recordId
     })
-    console.log(element)
+    
     setSelectedRecord(element)
   }
 
@@ -69,7 +69,7 @@ function App() {
           )
         })}
       </div>
-      <CRUD RecordId={recordId} />
+      <CRUD RecordId={recordId} Record={selectedRecord} />
     </div>
 
 
