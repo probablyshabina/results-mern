@@ -1,5 +1,5 @@
 {
-  "name": "tailwind",
+  "name": "results-mern",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -27,5 +27,22 @@
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4",
     "vite": "^4.0.0"
-  }
+  },
+  "description": "Frontend -> npm run dev Backend -> npm start/ node server.js",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shabinaliyaudeen/results-mern.git"
+  },
+  "keywords": [
+    "MERN",
+    "REACT",
+    "NODE"
+  ],
+  "author": "Shabina FL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shabinaliyaudeen/results-mern/issues"
+  },
+  "homepage": "https://github.com/shabinaliyaudeen/results-mern#readme"
 }

@@ -48,16 +48,16 @@ export const updateResult = async (req, res) => {
 };
 
 export const deleteResult = async (req, res) => {
-    console.log(req)
     try{
         const {_id: resultID} = req.params;
-        console.log("resultID: ")
-        console.log(resultID)
+        console.log({_id: resultID});
+        
         const result = await Result.findOneAndDelete({_id: resultID});
         if(!result){
-            return res.status(404).json({msg: 'No result with id: ${resultID}'});
+            return res.status(404).json({msg: `No result with id: ${resultID}`});
         }
         res.status(200).json({result: null, status: 'successfully deleted'});
+        
     }catch(error){
         res.status(500).json({msg: error});
     }
